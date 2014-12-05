@@ -1,0 +1,4 @@
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+{% for connection in postgresql_hba_conf %}
+{{connection.type}}  {{connection.database}}  {{connection.user}}  {{connection.address}}  {{connection.method}}
+{% endfor %}

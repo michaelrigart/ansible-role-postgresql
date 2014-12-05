@@ -1,0 +1,37 @@
+---
+
+- name: add APT key
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    id: ACCC4CF8
+
+- name: add APT repository
+  apt_repository:
+    repo: 'deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main {{ postgresql_pkg_version }}'
+
+- name: install postgresql server
+  apt:
+    pkg: 'postgresql-{{ postgresql_pkg_version }}'
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  when: postgresql_server_install
+
+- name: install postgresql client
+  apt:
+    pkg: 'postgresql-client-{{ postgresql_pkg_version }}'
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  when: postgresql_client_install
+
+- name: install postgresql extensions
+  apt:
+    pkg: '{{ item }}'
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items: postgresql_extensions
+  when: postgresql_server_install
+  notify: postgresql_restart
+

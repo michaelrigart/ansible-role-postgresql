@@ -1,0 +1,3 @@
+{% for k, v in postgresql_conf.iteritems()|sort %}
+{{ k }} = {{ v }}
+{% endfor %}

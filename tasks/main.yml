@@ -1,0 +1,14 @@
+---
+
+- include: package.yml
+  tags: package
+
+- include: configuration.yml
+  tags: configuration
+
+- name: start/stop postgresql service
+  service:
+    name: postgresql
+    state: '{{ postgresql_service_state }}'
+    enabled: '{{ postgresql_service_enabled }}'
+  tags: service
