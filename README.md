@@ -1,5 +1,5 @@
-Ansible mongodb Role
-====================
+Ansible Postgresql Role
+=======================
 
 An ansible role for installing and configuring Postgresql client / server
 
