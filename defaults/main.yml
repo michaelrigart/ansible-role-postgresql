@@ -1,5 +1,5 @@
 ---
-
+postgresql_pgdg_repo: true
 postgresql_server_install: true
 postgresql_client_install: true
 postgresql_pkg_version: 9.4

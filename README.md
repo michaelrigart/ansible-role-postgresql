@@ -8,6 +8,7 @@ Role Variables
 
 ---
 
+postgresql_pgdg_repo: define if you wish to setup the PostgreSQL Global Development Group (PGDG) APT repository
 postgresql_server_install: define if you wish to install postgresql server
 postgresql_client_install: define if you wish to install postgresql client
 postgresql_pkg_version: define the postgresql version
