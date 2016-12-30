@@ -37,7 +37,7 @@
     group: '{{ postgresql_admin_user }}'
     mode: 0640
   notify: postgresql_restart
-  
+
 - name: create folder for additional configuration files
   file:
     name: '{{ postgresql_conf_directory }}/conf.d'
@@ -54,5 +54,5 @@
     owner: '{{ postgresql_admin_user }}'
     group: '{{ postgresql_admin_user }}'
     mode: 0640
-  with_items: postgresql_additional_confs
+  with_items: '{{ postgresql_additional_confs }}'
   notify: postgresql_restart
