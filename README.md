@@ -1,6 +1,5 @@
 Ansible Postgresql Role
 =======================
-[![Build Status](https://semaphoreci.com/api/v1/projects/a53b926e-5dfb-438d-b44b-2995ddc63102/461772/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-postgresql)
 
 An ansible role for installing and configuring Postgresql client / server
 
@@ -34,7 +33,7 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-     - { role: MichaelRigart.postgresql, sudo: Yes }
+     - { role: MichaelRigart.postgresql, become: true }
 ```
 
 License
